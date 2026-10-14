@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <book id="1">
+        <title>JavaScript and jQuery</title>
+        <author>Jon Duckett</author>
+        <price>29.99</price>
+    </book>
+    <book id="2">
+        <title>HTML and CSS: Design and Build Websites</title>
+        <author>Jon Duckett</author>
+        <price>27.50</price>
+    </book>
+    <book id="3">
+        <title>Learning Web Design</title>
+        <author>Jennifer Niederst Robbins</author>
+        <price>34.95</price>
+    </book>
+    <book id="4">
+        <title>Responsive Web Design</title>
+        <author>Ethan Marcotte</author>
+        <price>21.00</price>
+    </book>
+</catalog>

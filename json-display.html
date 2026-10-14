@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profiles - JSON Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .user-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        .user-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-top: 12px;
+            color: #34495e;
+        }
+        .tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background-color: #3498db;
+            color: white;
+            font-size: 0.9em;
+            margin-right: 5px;
+        }
+        .tag-true {
+            background-color: #27ae60;
+        }
+        .tag-false {
+            background-color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Profiles</h1>
+    <div id="userList"></div>
+
+    <script>
+    // Fetch API 加载 JSON 数据
+    fetch("userProfiles.json")
+        .then(response => response.json())
+        .then(users => {
+            let outputHtml = "";
+
+            users.forEach(user => {
+                outputHtml += `
+                <div class="user-card">
+                    <div class="user-name">${user.firstName} ${user.lastName}</div>
+                    <div><b>Email:</b> ${user.email}</div>
+                    <div><b>Date of Birth:</b> ${user.dateOfBirth}</div>
+                    
+                    <div class="section-title">Address</div>
+                    <div>${user.address.street}</div>
+                    <div>${user.address.city}, ${user.address.state} ${user.address.zipCode}</div>
+                    
+                    <div class="section-title">Preferences</div>
+                    <div>
+                        <span class="tag">Theme: ${user.userPreferences.theme}</span>
+                        <span class="tag">Language: ${user.userPreferences.language}</span>
+                    </div>
+                    <div style="margin-top:8px;">
+                        Notifications: 
+                        <span class="tag ${user.userPreferences.notifications ? 'tag-true' : 'tag-false'}">
+                            ${user.userPreferences.notifications}
+                        </span>
+                        &nbsp;&nbsp;
+                        Newsletter Subscription:
+                        <span class="tag ${user.userPreferences.subscription ? 'tag-true' : 'tag-false'}">
+                            ${user.userPreferences.subscription}
+                        </span>
+                    </div>
+                </div>
+                `;
+            });
+
+            document.getElementById("userList").innerHTML = outputHtml;
+        })
+        .catch(error => {
+            document.getElementById("userList").innerHTML = 
+                "<p style='color:red'>加载失败，请检查 JSON 文件路径。</p>";
+        });
+</script>
+
+
+</body>
+</html>

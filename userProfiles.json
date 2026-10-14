@@ -1,0 +1,35 @@
+[
+    {
+        "firstName": "Alice",
+        "lastName": "Smith",
+        "email": "alice.smith@example.com",
+        "dateOfBirth": "1995-03-15",
+        "userPreferences": {
+            "theme": "dark",
+            "language": "English",
+            "notifications": true
+        }
+    },
+    {
+        "firstName": "Bob",
+        "lastName": "Johnson",
+        "email": "bob.johnson@example.com",
+        "dateOfBirth": "1990-11-22",
+        "userPreferences": {
+            "theme": "light",
+            "language": "French",
+            "notifications": false
+        }
+    },
+    {
+        "firstName": "Charlie",
+        "lastName": "Williams",
+        "email": "charlie.w@example.com",
+        "dateOfBirth": "1998-07-08",
+        "userPreferences": {
+            "theme": "system",
+            "language": "Spanish",
+            "notifications": true
+        }
+    }
+]
